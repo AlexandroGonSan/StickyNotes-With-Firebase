@@ -9,20 +9,20 @@ jQuery.fn.extend({
 });
 $(function() {
 	//Initialize Things for the app to be functional
-	
+
 	//Creating the firebase reference.
     var firebaseref = new Firebase("https://dazzling-fire-8954.firebaseio.com/");
-	
+
 	//Global Variables for userData and the firebase reference to the list.
     var listRef = null;
 	var userData = null;
-	
+
 	//timer is used for few animations for the status messages.
 	var timer = null;
-	
+
 	//Clear the Status block for showing the Status of Firebase Calls
     $(".status").removeClass('hide').hide();
-	
+
 	//Routing for the Tabs in the navbar
     goToTab = function(tabname) {
         if (tabname == "#lists") {
