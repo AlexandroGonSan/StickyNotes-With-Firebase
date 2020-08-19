@@ -1,3 +1,3 @@
 FROM httpd
 COPY . /usr/local/apache2/htdocs/
-EXPOSE 8080:80
+EXPOSE 8181:80

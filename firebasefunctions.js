@@ -9,9 +9,10 @@ jQuery.fn.extend({
 });
 $(function() {
 	//Initialize Things for the app to be functional
+	var db = 'https://direct-terminal-250901.firebaseio.com/';
 
 	//Creating the firebase reference.
-    var firebaseref = new Firebase("https://dazzling-fire-8954.firebaseio.com/");
+    var firebaseref = new Firebase(db);
 
 	//Global Variables for userData and the firebase reference to the list.
     var listRef = null;
@@ -33,7 +34,7 @@ $(function() {
         $(".tab").addClass('hide');
         $(".tab" + tabname).removeClass('hide');
     }
-	
+
 	/*
 	*Bind Events to the list item to provide more functionality.
 	*You can extend this function to add more things like a Status button to mark items (for creating something like Trello!)
@@ -135,7 +136,7 @@ $(function() {
 	
 	//Setting the 3 firebase events to call different functions that handle the specific functionality of the app.
     var setUpFirebaseEvents = function() {
-        listRef = new Firebase('https://dazzling-fire-8954.firebaseio.com/lists/sharedlist/items');
+        listRef = new Firebase(db+'lists/sharedlist/items');
         $("#sharedlist").html('');
         listRef.off('child_added', childAddedFunction)
         listRef.on("child_added", childAddedFunction);
@@ -256,26 +257,26 @@ $(function() {
         $(".welcome").html('');
         goToTab('#login');
     });
-	
+
 	//Callback for authWithPassword API Call
 	var loginCallback = function(error,authData)
 	{
-		if (error) 
+		if (error)
 		{
 			console.log("Login Failed!", error);
 			$("#login-btn").parent().find('.status').html("Login Failed!:" + error).show();
-        } 
-		else 
+        }
+		else
 		{
 			console.log("Authenticated successfully with payload:", authData);
 			$("#login-btn").parent().find('.status').html("You are logged in as:" + authData.uid).show();
         }
 	}
-	
+
 	//Callback for createUser API Call
 	var signupLoginCallback = function(error,authData)
 	{
-		if (error) 
+		if (error)
 		{
 			console.log("Login Failed!", error);
 		} 
@@ -295,14 +296,14 @@ $(function() {
             password: password
         }, callback);
 	}
-	
+
 	//Handling Login Process
     $("#login-btn").on('click', function() {
         var email = $("#login-email").val();
         var password = $("#login-password").val();
         loginUser(email,password,loginCallback);
     });
-	
+
 	//Handling Signup process
     $("#signup-btn").on('click', function() {
 
@@ -328,7 +329,7 @@ $(function() {
             }
         });
     });
-	
+
 	//Pushing new items to Firebase list. This is called when a user click on "AddNewItem Button"
     var addListItem = function(content) {
         var postsRef = listRef;
@@ -359,13 +360,13 @@ $(function() {
 	
 	//API call to remove items from Firebase
     var removeItemFromFirebase = function(key) {
-        var itemRef = new Firebase('https://dazzling-fire-8954.firebaseio.com/lists/sharedlist/items/' + key);
+        var itemRef = new Firebase(db+'lists/sharedlist/items/' + key);
         itemRef.remove();
     }
 	
 	//API call to update the existing item in Firebase with the latest CSS string.
     var addCSSStringToItem = function(key, css) {
-        var itemRef = new Firebase('https://dazzling-fire-8954.firebaseio.com/lists/sharedlist/items/' + key);
+        var itemRef = new Firebase(db+'lists/sharedlist/items/' + key);
         itemRef.update({
             css: css,
         });
@@ -377,7 +378,7 @@ $(function() {
         var name = $("#name").val();
 		if(!name)
 			name = userid;
-        var userRef = new Firebase('https://dazzling-fire-8954.firebaseio.com/users/' + userid);
+        var userRef = new Firebase(db+'users/' + userid);
         userRef.set({
             full_name: name
         },

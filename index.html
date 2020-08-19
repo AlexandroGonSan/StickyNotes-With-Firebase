@@ -72,6 +72,38 @@
             </form>
             <hr>
             <div class="status alert alert-info hide"></div>
+            <ul id="sharedlist" class="sharedlist" data-widget-class="sharedlist">
+				<li data-item-id='1'>
+					<p class='itemauthor'>Added By - Ale
+						<span class='removebtn'><i class='fa fa-remove'></i></span>
+						<span class='time'> on timestamp</span></p><p class='itemtext'>ipsus leren ipsus</p>
+				</li>
+				<li data-item-id='1'>
+					<p class='itemauthor'>Added By - Ale
+						<span class='removebtn'><i class='fa fa-remove'></i></span>
+						<span class='time'> on timestamp</span></p><p class='itemtext'>ipsus leren ipsus</p>
+				</li>
+				<li data-item-id='1'>
+					<p class='itemauthor'>Added By - Ale
+						<span class='removebtn'><i class='fa fa-remove'></i></span>
+						<span class='time'> on timestamp</span></p><p class='itemtext'>ipsus leren ipsus</p>
+				</li>
+				<li data-item-id='1'>
+					<p class='itemauthor'>Added By - Ale
+						<span class='removebtn'><i class='fa fa-remove'></i></span>
+						<span class='time'> on timestamp</span></p><p class='itemtext'>ipsus leren ipsus</p>
+				</li>
+				<li data-item-id='1'>
+					<p class='itemauthor'>Added By - Ale
+						<span class='removebtn'><i class='fa fa-remove'></i></span>
+						<span class='time'> on timestamp</span></p><p class='itemtext'>ipsus leren ipsus</p>
+				</li>
+				<li data-item-id='1'>
+					<p class='itemauthor'>Added By - Ale
+						<span class='removebtn'><i class='fa fa-remove'></i></span>
+						<span class='time'> on timestamp</span></p><p class='itemtext'>ipsus leren ipsus</p>
+				</li>
+			</ul>
         </div>
         <div class="container tab hide" id="lists">
             <div class="status alert alert-info hide"></div><br>
@@ -91,6 +123,31 @@
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+		<script>
+		  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+		    apiKey: "AIzaSyAgkSQffBRgSYL4vKEqG_hujFyhn9sV4mE",
+		    authDomain: "localhost",
+		    databaseURL: "https://direct-terminal-250901.firebaseio.com",
+		    projectId: "direct-terminal-250901",
+		    storageBucket: "direct-terminal-250901.appspot.com",
+		    messagingSenderId: "405073794563",
+		    appId: "1:405073794563:web:97ec4f640b75e698202036",
+		    measurementId: "G-WM2HDM10ST"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		  firebase.analytics();
+		</script>
+
         <script type="text/javascript" src="./firebasefunctions.js"></script>
     </body>
 </html>
