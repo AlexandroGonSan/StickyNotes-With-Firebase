@@ -1,3 +1,7 @@
+# Branch's
+* master
+* docker
+
 # StickyNotes-With-Firebase
 A real-time shared sticky notes application built using Firebase.
 
